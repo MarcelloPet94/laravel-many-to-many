@@ -10,6 +10,7 @@
                 <li>Title</li>
                 <li>Contenuto</li>
                 <li>Slug</li>
+                <li>Tags</li>
                 <li>Operation</li>
             </ul>
         </div>
@@ -19,6 +20,11 @@
                     <li>{{$post->title}}</li>
                     <li>{{$post->content}}</li>
                     <li>{{$post->slug}}</li>
+                    <li>
+                        @foreach ($post->$tags as $tag)
+                            {{ $tag->name }}
+                        @endforeach                        
+                    </li>
                     <li>
                         <a  href="{{ route('admin.posts.edit', $post->id) }}">Edit</a>
                     </li>

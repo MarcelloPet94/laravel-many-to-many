@@ -16,6 +16,18 @@
                  <a href="{{ route('admin.posts.index')}}" class="btnStyl goback">Go back</a>
                 <button type="submit" class="btn_funct save_edit_btn">Edit</button>
             </div>  
+
+            @foreach ($tags as $tag)
+                
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="{{$tag->id}}" id="{{$tag->slug}}" name="tags[]">
+                <label class="form-check-label" for="{{$tag->slug}}">
+                    {{$tag->name}}
+                </label>
+                </div>
+
+            @endforeach   
+
         </form>
 
         @if ($errors->any())

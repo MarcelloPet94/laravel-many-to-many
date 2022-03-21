@@ -12,6 +12,7 @@
                 <li>Contenuto</li>
                 <li>Slug</li>
                 <li>Categoria</li>
+                <li>Tags</li>
                 <li>Operation</li>
             </ul>
         </div>
@@ -23,6 +24,11 @@
                     <li>{{$post->content}}</li>
                     <li>{{$post->slug}}</li>
                     <li>{{$post->category ? $post->category->name : 'No category'}}</li>
+                    <li> 
+                        @foreach ($post->tags as $tag)
+                            {{ $tag->name }}
+                        @endforeach
+                    </li>
                     <li>
                     <div class="space_btn_area">
                         <a class="btn_funct goback" href="{{ route('admin.posts.show', $post->id) }}">Open</a>
